@@ -9,6 +9,30 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
+        public void agregarArticulo(Articulo nuevoArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) values (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @ImagenUrl, @Precio)");
+                datos.setParametros("@Codigo", nuevoArticulo.Codigo);
+                datos.setParametros("@Nombre", nuevoArticulo.Nombre);
+                datos.setParametros("@Descripcion", nuevoArticulo.Descripcion);
+                datos.setParametros("@IdMarca", nuevoArticulo.Marca.Id);
+                datos.setParametros("@IdCategoria", nuevoArticulo.Categoria.Id);
+                datos.setParametros("@ImagenUrl", nuevoArticulo.ImagenUrl);
+                datos.setParametros("@Precio", nuevoArticulo.Precio);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public List<Articulo> listar()
         {
             List<Articulo> listaArticulos = new List<Articulo>();
