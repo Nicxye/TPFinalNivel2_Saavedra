@@ -14,7 +14,8 @@ namespace Presentacion
 {
     public partial class VistaPrincipal : Form
     {
-        public List<Articulo> listaArticuloForms;
+        private List<Articulo> listaArticuloForms;
+        private Articulo seleccionado;
         public VistaPrincipal()
         {
             InitializeComponent();
@@ -80,19 +81,43 @@ namespace Presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmAgregar agregar = new frmAgregar();
+            agregar.Text = "Agregando artículo";
             agregar.ShowDialog();
             cargarDatos();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado;
             seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
             frmAgregar agregar = new frmAgregar(seleccionado);
-            //agregar.Text = "Modificando artículo";
+            agregar.Text = "Modificando artículo";
             agregar.ShowDialog();
             cargarDatos();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            try
+            {
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                DialogResult respuesta = MessageBox.Show("¿De verdad quieres eliminar " + seleccionado.Nombre + "? Esta acción es permanente.", "Eliminando artículo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    negocio.eliminarArticulo(seleccionado);
+                    MessageBox.Show("Eliminado exitosamente.");
+                    cargarDatos();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
