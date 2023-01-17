@@ -31,6 +31,10 @@ namespace negocio
 
                 throw ex;
             }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
         public List<Articulo> listar()
@@ -73,6 +77,34 @@ namespace negocio
             {
 
                 throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificarArticulo(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("Update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, ImagenUrl = @ImagenUrl, Precio = @Precio where Id = @Id");
+                datos.setParametros("@Codigo", articulo.Codigo);
+                datos.setParametros("@Nombre", articulo.Nombre);
+                datos.setParametros("@Descripcion", articulo.Descripcion);
+                datos.setParametros("@IdMarca", articulo.Marca.Id);
+                datos.setParametros("@IdCategoria", articulo.Categoria.Id);
+                datos.setParametros("@ImagenUrl", articulo.ImagenUrl);
+                datos.setParametros("@Precio", articulo.Precio);
+                datos.setParametros("@Id", articulo.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
             finally
             {

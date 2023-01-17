@@ -20,6 +20,12 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+        public frmAgregar(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificado exitosamente";
+        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -73,7 +79,8 @@ namespace Presentacion
 
                 if (articulo.Id != 0)
                 {
-
+                    negocio.modificarArticulo(articulo);
+                    MessageBox.Show(articulo.Nombre + " modificado exitosamente");
                 }
                 else
                 {
@@ -101,6 +108,18 @@ namespace Presentacion
                 cboCategoria.DataSource = categoriaNegocio.listar();
                 cboCategoria.ValueMember = "Id";
                 cboCategoria.DisplayMember = "Descripcion";
+
+                if (articulo != null)
+                {
+                    txtCodigo.Text = articulo.Codigo;
+                    txtNombre.Text = articulo.Nombre;
+                    txtDescripcion.Text = articulo.Descripcion;
+                    txtImagenUrl.Text = articulo.ImagenUrl;
+                    cargarImagen(articulo.ImagenUrl);
+                    cboMarca.SelectedItem = articulo.Marca.Id;
+                    cboCategoria.SelectedItem = articulo.Categoria.Id;
+                    txtPrecio.Text = articulo.Precio.ToString();
+                }
             }
             catch (Exception)
             {
@@ -116,12 +135,14 @@ namespace Presentacion
             txtImagenUrl.Clear();
             txtNombre.Clear();
             txtPrecio.Clear();
+            cboMarca.SelectedIndex = 0;
+            cboCategoria.SelectedIndex = 0;
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             {
-                if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+                if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46)
                 {
                     SystemSounds.Exclamation.Play();
                     e.Handled = true;
