@@ -46,6 +46,7 @@
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
+            this.btnAgregarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,11 +214,22 @@
             this.pbxImagen.TabIndex = 17;
             this.pbxImagen.TabStop = false;
             // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.Location = new System.Drawing.Point(335, 344);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(35, 23);
+            this.btnAgregarImagen.TabIndex = 18;
+            this.btnAgregarImagen.Text = "...";
+            this.btnAgregarImagen.UseVisualStyleBackColor = true;
+            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
+            // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 491);
+            this.Controls.Add(this.btnAgregarImagen);
             this.Controls.Add(this.pbxImagen);
             this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.cboMarca);
@@ -266,5 +278,6 @@
         private System.Windows.Forms.ComboBox cboMarca;
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.PictureBox pbxImagen;
+        private System.Windows.Forms.Button btnAgregarImagen;
     }
 }

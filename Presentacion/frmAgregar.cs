@@ -3,8 +3,10 @@ using negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -16,6 +18,7 @@ namespace Presentacion
     public partial class frmAgregar : Form
     {
         private Articulo articulo = null;
+        private OpenFileDialog imagen = null;
         public frmAgregar()
         {
             InitializeComponent();
@@ -88,6 +91,8 @@ namespace Presentacion
                     limpiarTexto();
                     MessageBox.Show("Agregado exitosamente.");
                 }
+                if (imagen != null && txtImagenUrl.Text.ToUpper().Contains("HTTP"))
+                    File.Copy(imagen.FileName, ConfigurationManager.AppSettings["images-folder"] + imagen.SafeFileName);
             }
             catch (Exception ex)
             {
@@ -111,6 +116,7 @@ namespace Presentacion
 
                 if (articulo != null)
                 {
+                    lblAgregar.Text = "MODIFICAR ARTÍCULO";
                     txtCodigo.Text = articulo.Codigo;
                     txtNombre.Text = articulo.Nombre;
                     txtDescripcion.Text = articulo.Descripcion;
@@ -141,13 +147,22 @@ namespace Presentacion
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 44 && e.KeyChar != 46)
             {
-                if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46)
-                {
-                    SystemSounds.Exclamation.Play();
-                    e.Handled = true;
-                }
+                SystemSounds.Exclamation.Play();
+                e.Handled = true;
+            }
+        }
 
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            imagen = new OpenFileDialog();
+            imagen.Filter = "jpg|*.jpg; |png|*.png";
+
+            if (imagen.ShowDialog() == DialogResult.OK)
+            {
+                txtImagenUrl.Text = imagen.FileName;
+                cargarImagen(imagen.FileName);
             }
         }
     }
