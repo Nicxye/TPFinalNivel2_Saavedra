@@ -140,6 +140,7 @@
             // 
             // btnAceptar
             // 
+            this.btnAceptar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAceptar.Location = new System.Drawing.Point(259, 447);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
@@ -150,6 +151,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Location = new System.Drawing.Point(437, 447);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
@@ -190,6 +192,7 @@
             // 
             // cboMarca
             // 
+            this.cboMarca.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.FormattingEnabled = true;
             this.cboMarca.Location = new System.Drawing.Point(183, 253);
@@ -199,6 +202,7 @@
             // 
             // cboCategoria
             // 
+            this.cboCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
             this.cboCategoria.Location = new System.Drawing.Point(183, 294);
@@ -217,6 +221,7 @@
             // 
             // btnAgregarImagen
             // 
+            this.btnAgregarImagen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarImagen.Location = new System.Drawing.Point(335, 344);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(35, 23);
@@ -231,9 +236,9 @@
             this.lblRequerido.ForeColor = System.Drawing.Color.Red;
             this.lblRequerido.Location = new System.Drawing.Point(32, 71);
             this.lblRequerido.Name = "lblRequerido";
-            this.lblRequerido.Size = new System.Drawing.Size(167, 13);
+            this.lblRequerido.Size = new System.Drawing.Size(173, 13);
             this.lblRequerido.TabIndex = 19;
-            this.lblRequerido.Text = "Los campos con * son requeridos.";
+            this.lblRequerido.Text = "Los campos con (*) son requeridos.";
             // 
             // frmAgregar
             // 

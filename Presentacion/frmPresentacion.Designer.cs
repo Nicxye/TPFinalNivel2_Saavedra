@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
-            this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -43,22 +42,24 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblEntre = new System.Windows.Forms.Label();
             this.txtPrecioSecundario = new System.Windows.Forms.TextBox();
-            this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.lblDetalles = new System.Windows.Forms.LinkLabel();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblLinea = new System.Windows.Forms.Label();
+            this.pbxImagen = new System.Windows.Forms.PictureBox();
+            this.pbxLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
             // 
             this.dgvArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.Location = new System.Drawing.Point(12, 146);
@@ -69,18 +70,9 @@
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
-            // pbxLogo
-            // 
-            this.pbxLogo.BackColor = System.Drawing.Color.Gold;
-            this.pbxLogo.Image = global::Presentacion.Properties.Resources.mercadoliebre;
-            this.pbxLogo.Location = new System.Drawing.Point(12, 1);
-            this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(182, 108);
-            this.pbxLogo.TabIndex = 1;
-            this.pbxLogo.TabStop = false;
-            // 
             // btnAgregar
             // 
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.Location = new System.Drawing.Point(12, 525);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
@@ -91,6 +83,7 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificar.Location = new System.Drawing.Point(119, 525);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
@@ -101,6 +94,7 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.Location = new System.Drawing.Point(225, 525);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
@@ -111,6 +105,7 @@
             // 
             // btnFiltrar
             // 
+            this.btnFiltrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFiltrar.Location = new System.Drawing.Point(330, 525);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(90, 23);
@@ -121,6 +116,7 @@
             // 
             // cboCampo
             // 
+            this.cboCampo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCampo.FormattingEnabled = true;
             this.cboCampo.Location = new System.Drawing.Point(12, 605);
@@ -149,6 +145,7 @@
             // 
             // cboCriterio
             // 
+            this.cboCriterio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterio.FormattingEnabled = true;
             this.cboCriterio.Location = new System.Drawing.Point(138, 606);
@@ -176,6 +173,7 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscar.Location = new System.Drawing.Point(426, 606);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 22);
@@ -201,17 +199,6 @@
             this.txtPrecioSecundario.TabIndex = 14;
             this.txtPrecioSecundario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioSecundario_KeyPress);
             // 
-            // pbxImagen
-            // 
-            this.pbxImagen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxImagen.Location = new System.Drawing.Point(681, 146);
-            this.pbxImagen.Name = "pbxImagen";
-            this.pbxImagen.Size = new System.Drawing.Size(401, 358);
-            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxImagen.TabIndex = 15;
-            this.pbxImagen.TabStop = false;
-            // 
             // lblDetalles
             // 
             this.lblDetalles.AutoSize = true;
@@ -222,6 +209,7 @@
             this.lblDetalles.TabIndex = 17;
             this.lblDetalles.TabStop = true;
             this.lblDetalles.Text = "CLICK PARA VER DETALLES";
+            this.lblDetalles.Click += new System.EventHandler(this.lblDetalles_Click);
             // 
             // lblNombre
             // 
@@ -271,6 +259,29 @@
             this.lblLinea.Size = new System.Drawing.Size(1161, 110);
             this.lblLinea.TabIndex = 22;
             // 
+            // pbxImagen
+            // 
+            this.pbxImagen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbxImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbxImagen.Location = new System.Drawing.Point(681, 146);
+            this.pbxImagen.Name = "pbxImagen";
+            this.pbxImagen.Size = new System.Drawing.Size(401, 358);
+            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImagen.TabIndex = 15;
+            this.pbxImagen.TabStop = false;
+            this.pbxImagen.Click += new System.EventHandler(this.lblDetalles_Click);
+            // 
+            // pbxLogo
+            // 
+            this.pbxLogo.BackColor = System.Drawing.Color.Gold;
+            this.pbxLogo.Image = global::Presentacion.Properties.Resources.mercadoliebre;
+            this.pbxLogo.Location = new System.Drawing.Point(12, 1);
+            this.pbxLogo.Name = "pbxLogo";
+            this.pbxLogo.Size = new System.Drawing.Size(182, 108);
+            this.pbxLogo.TabIndex = 1;
+            this.pbxLogo.TabStop = false;
+            // 
             // VistaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,13 +310,15 @@
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.lblLinea);
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1174, 736);
             this.Name = "VistaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mercado Liebre";
             this.Load += new System.EventHandler(this.VistaPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

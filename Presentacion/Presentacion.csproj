@@ -53,6 +53,12 @@
     <Compile Include="frmAgregar.Designer.cs">
       <DependentUpon>frmAgregar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDetalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetalles.Designer.cs">
+      <DependentUpon>frmDetalles.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPresentacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     <EmbeddedResource Include="frmAgregar.resx">
       <DependentUpon>frmAgregar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDetalles.resx">
+      <DependentUpon>frmDetalles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPresentacion.resx">
       <DependentUpon>frmPresentacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -72,6 +81,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
