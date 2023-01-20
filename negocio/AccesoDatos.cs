@@ -9,33 +9,46 @@ namespace negocio
 {
     public class AccesoDatos
     {
-        SqlConnection conexion;
-        SqlCommand comando;
-        SqlDataReader lector;
+        private SqlConnection conexion;
+        private SqlCommand comando;
+        private SqlDataReader lector;
 
         public AccesoDatos()
         {
             conexion = new SqlConnection("server=.\\SQLEXPRESS; database = CATALOGO_DB; integrated security = true");
             comando = new SqlCommand();
-        }
+        }   //Conexión a la base de datos.
 
         public SqlDataReader Lector
         {
             get { return lector; }
         }
 
-        public void setConsulta(string consulta)
+        public void CerrarConexion()
         {
-            comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = consulta;
-        }
+            if (lector != null)
+                lector.Close();
 
-        public void setParametros(string nombre, object value)
+            conexion.Close();
+        }
+        
+        public void EjecutarAccion()
         {
-            comando.Parameters.AddWithValue(nombre, value);
-        }
+            comando.Connection = conexion;
 
-        public void ejecutarLector()
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        
+        public void EjecutarLector()
         {
             comando.Connection = conexion;
 
@@ -50,29 +63,16 @@ namespace negocio
                 throw ex;
             }
         }
-
-        public void cerrarConexion()
+        
+        public void SetConsulta(string consulta)
         {
-            if (lector != null)
-                lector.Close();
-
-            conexion.Close();
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = consulta;
         }
 
-        public void ejecutarAccion()
+        public void SetParametros(string nombre, object value)
         {
-            comando.Connection = conexion;
-
-            try
-            {
-                conexion.Open();
-                comando.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+            comando.Parameters.AddWithValue(nombre, value);
         }
     }
 }

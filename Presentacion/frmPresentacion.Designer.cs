@@ -49,6 +49,7 @@
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
+            this.lblLinea = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
@@ -70,10 +71,11 @@
             // 
             // pbxLogo
             // 
+            this.pbxLogo.BackColor = System.Drawing.Color.Gold;
             this.pbxLogo.Image = global::Presentacion.Properties.Resources.mercadoliebre;
-            this.pbxLogo.Location = new System.Drawing.Point(12, 12);
+            this.pbxLogo.Location = new System.Drawing.Point(12, 1);
             this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(182, 109);
+            this.pbxLogo.Size = new System.Drawing.Size(182, 108);
             this.pbxLogo.TabIndex = 1;
             this.pbxLogo.TabStop = false;
             // 
@@ -203,7 +205,7 @@
             // 
             this.pbxImagen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxImagen.Location = new System.Drawing.Point(677, 146);
+            this.pbxImagen.Location = new System.Drawing.Point(681, 146);
             this.pbxImagen.Name = "pbxImagen";
             this.pbxImagen.Size = new System.Drawing.Size(401, 358);
             this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -214,7 +216,7 @@
             // 
             this.lblDetalles.AutoSize = true;
             this.lblDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetalles.Location = new System.Drawing.Point(745, 119);
+            this.lblDetalles.Location = new System.Drawing.Point(749, 119);
             this.lblDetalles.Name = "lblDetalles";
             this.lblDetalles.Size = new System.Drawing.Size(263, 24);
             this.lblDetalles.TabIndex = 17;
@@ -225,7 +227,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(833, 522);
+            this.lblNombre.Location = new System.Drawing.Point(837, 522);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(76, 24);
             this.lblNombre.TabIndex = 18;
@@ -235,7 +237,7 @@
             // 
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(833, 556);
+            this.lblPrecio.Location = new System.Drawing.Point(837, 556);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(63, 24);
             this.lblPrecio.TabIndex = 19;
@@ -245,7 +247,7 @@
             // 
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.Location = new System.Drawing.Point(834, 585);
+            this.lblMarca.Location = new System.Drawing.Point(838, 585);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(62, 24);
             this.lblMarca.TabIndex = 20;
@@ -255,11 +257,19 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(673, 507);
+            this.lblCategoria.Location = new System.Drawing.Point(677, 507);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(87, 24);
             this.lblCategoria.TabIndex = 21;
             this.lblCategoria.Text = "categoria";
+            // 
+            // lblLinea
+            // 
+            this.lblLinea.BackColor = System.Drawing.Color.Gold;
+            this.lblLinea.Location = new System.Drawing.Point(0, 0);
+            this.lblLinea.Name = "lblLinea";
+            this.lblLinea.Size = new System.Drawing.Size(1161, 110);
+            this.lblLinea.TabIndex = 22;
             // 
             // VistaPrincipal
             // 
@@ -288,6 +298,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.dgvArticulos);
+            this.Controls.Add(this.lblLinea);
             this.Name = "VistaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mercado Liebre";
@@ -323,6 +334,7 @@
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.Label lblLinea;
     }
 }
 

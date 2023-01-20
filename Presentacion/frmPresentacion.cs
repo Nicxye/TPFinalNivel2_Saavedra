@@ -23,23 +23,23 @@ namespace Presentacion
 
         private void VistaPrincipal_Load(object sender, EventArgs e)
         {
-            cargarDatos();
-            cargarImagenLogo();
-            ocultarColumas();
-            ocultarElementos();
+            CargarDatos();
+            CargarImagenLogo();
+            OcultarColumas();
+            OcultarElementos();
             cboCampo.Items.Add("Nombre");
             cboCampo.Items.Add("Marca");
             cboCampo.Items.Add("Categoría");
             cboCampo.Items.Add("Precio");
         }
 
-        private void cargarDatos()
+        private void CargarDatos()
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
             {
-                listaArticuloForms = negocio.listar();
+                listaArticuloForms = negocio.Listar();
                 dgvArticulos.DataSource = listaArticuloForms;
             }
             catch (Exception ex)
@@ -49,7 +49,7 @@ namespace Presentacion
             }
         }
 
-        private void ocultarColumas()
+        private void OcultarColumas()                           //Oculta columnas del DataGridView principal.
         {
             dgvArticulos.Columns["Codigo"].Visible = false;
             dgvArticulos.Columns["Descripcion"].Visible = false;
@@ -59,7 +59,7 @@ namespace Presentacion
             dgvArticulos.Columns["ImagenUrl"].Visible = false;
         }
 
-        private void ocultarElementos()
+        private void OcultarElementos()             //Oculta los elementos de filtro avanzado.
         {
             lblCampo.Visible = false;
             cboCampo.Visible = false;
@@ -72,7 +72,7 @@ namespace Presentacion
             txtPrecioSecundario.Visible = false;
         }
 
-        private void mostrarElementos()
+        private void MostrarElementos()             //Muestra los elementos de filtro avanzado.
         {
             lblCampo.Visible = true;
             cboCampo.Visible = true;
@@ -83,7 +83,7 @@ namespace Presentacion
             btnBuscar.Visible = true;
         }
 
-        private void cargarImagenLogo()
+        private void CargarImagenLogo()
         {
             try
             {
@@ -96,7 +96,7 @@ namespace Presentacion
                 pbxLogo.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZKmSgKaggimHO3m0vDIZubBD2I4b4hdW4sORN1xJNHxrlNZmeHPrNna1KYfc6UkCOygU&usqp=CAU");
             }
         }
-        private void cargarImagen(string imagen)
+        private void CargarImagen(string imagen)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace Presentacion
             frmAgregar agregar = new frmAgregar();
             agregar.Text = "Agregando artículo";
             agregar.ShowDialog();
-            cargarDatos();
+            CargarDatos();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -126,7 +126,7 @@ namespace Presentacion
             frmAgregar agregar = new frmAgregar(seleccionado);
             agregar.Text = "Modificando artículo";
             agregar.ShowDialog();
-            cargarDatos();
+            CargarDatos();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -140,9 +140,9 @@ namespace Presentacion
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    negocio.eliminarArticulo(seleccionado);
+                    negocio.EliminarArticulo(seleccionado);
                     MessageBox.Show("Eliminado exitosamente.");
-                    cargarDatos();
+                    CargarDatos();
                 }
 
             }
@@ -155,10 +155,10 @@ namespace Presentacion
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            mostrarElementos();
+            MostrarElementos();
         }
 
-        private bool validarFiltro()
+        private bool ValidarFiltro()
         {
             if (cboCampo.SelectedIndex < 0 || cboCriterio.SelectedIndex < 0)
             {
@@ -196,17 +196,17 @@ namespace Presentacion
 
             try
             {
-                if (validarFiltro())
+                if (ValidarFiltro())
                     return;
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtFiltro.Text;
-                dgvArticulos.DataSource = negocio.filtrarArticulos(campo, criterio, filtro);
+                dgvArticulos.DataSource = negocio.FiltrarArticulos(campo, criterio, filtro);
 
                 if (criterio == "Entre")
                 {
                     string filtroSecundario = txtPrecioSecundario.Text;
-                    dgvArticulos.DataSource = negocio.filtrarArticulos(filtro, filtroSecundario);
+                    dgvArticulos.DataSource = negocio.FiltrarArticulos(filtro, filtroSecundario);
                 }
             }
             catch (Exception ex)
@@ -261,9 +261,9 @@ namespace Presentacion
             if (dgvArticulos.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.ImagenUrl);
+                CargarImagen(seleccionado.ImagenUrl);
                 lblNombre.Text = seleccionado.Nombre;
-                lblPrecio.Text = seleccionado.Precio.ToString();
+                lblPrecio.Text = "$" + seleccionado.Precio.ToString("0.00");
                 lblMarca.Text = seleccionado.Marca.Descripcion;
                 lblCategoria.Text = seleccionado.Categoria.Descripcion;
             }

@@ -14,8 +14,8 @@ namespace negocio
             List<Categoria> listaCategorias = new List<Categoria>();
             AccesoDatos datos = new AccesoDatos();
 
-            datos.setConsulta("Select Id, Descripcion from CATEGORIAS");
-            datos.ejecutarLector();
+            datos.SetConsulta("Select Id, Descripcion from CATEGORIAS");
+            datos.EjecutarLector();
 
             try
             {
@@ -37,7 +37,7 @@ namespace negocio
             }
             finally
             {
-                datos.cerrarConexion();
+                datos.CerrarConexion();
             }
         }
     }

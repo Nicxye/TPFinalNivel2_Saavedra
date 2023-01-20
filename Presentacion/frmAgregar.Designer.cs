@@ -47,6 +47,7 @@
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.btnAgregarImagen = new System.Windows.Forms.Button();
+            this.lblRequerido = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,9 +77,9 @@
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.Location = new System.Drawing.Point(102, 156);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(69, 20);
+            this.lblNombre.Size = new System.Drawing.Size(75, 20);
             this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Text = "Nombre*:";
             // 
             // lblDescripcion
             // 
@@ -126,9 +127,9 @@
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecio.Location = new System.Drawing.Point(114, 389);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(57, 20);
+            this.lblPrecio.Size = new System.Drawing.Size(63, 20);
             this.lblPrecio.TabIndex = 7;
-            this.lblPrecio.Text = "Precio:";
+            this.lblPrecio.Text = "Precio*:";
             // 
             // txtCodigo
             // 
@@ -224,11 +225,22 @@
             this.btnAgregarImagen.UseVisualStyleBackColor = true;
             this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
             // 
+            // lblRequerido
+            // 
+            this.lblRequerido.AutoSize = true;
+            this.lblRequerido.ForeColor = System.Drawing.Color.Red;
+            this.lblRequerido.Location = new System.Drawing.Point(32, 71);
+            this.lblRequerido.Name = "lblRequerido";
+            this.lblRequerido.Size = new System.Drawing.Size(167, 13);
+            this.lblRequerido.TabIndex = 19;
+            this.lblRequerido.Text = "Los campos con * son requeridos.";
+            // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 491);
+            this.Controls.Add(this.lblRequerido);
             this.Controls.Add(this.btnAgregarImagen);
             this.Controls.Add(this.pbxImagen);
             this.Controls.Add(this.cboCategoria);
@@ -279,5 +291,6 @@
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.PictureBox pbxImagen;
         private System.Windows.Forms.Button btnAgregarImagen;
+        private System.Windows.Forms.Label lblRequerido;
     }
 }
