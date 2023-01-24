@@ -13,11 +13,11 @@ namespace negocio
         private SqlCommand comando;
         private SqlDataReader lector;
 
-        public AccesoDatos()
+        public AccesoDatos()    //Conexión a la base de datos.
         {
             conexion = new SqlConnection("server=.\\SQLEXPRESS; database = CATALOGO_DB; integrated security = true");
             comando = new SqlCommand();
-        }   //Conexión a la base de datos.
+        }   
 
         public SqlDataReader Lector
         {

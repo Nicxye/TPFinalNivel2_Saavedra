@@ -311,6 +311,7 @@
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.lblLinea);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1174, 736);
             this.MinimumSize = new System.Drawing.Size(1174, 736);
             this.Name = "VistaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
